@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=ASQRbLVRA1dU-6gRLGNkivQKGDscILq8XDQYydtAnss4awKWxUQnME1PJwU7dtsqGjWTc4XZ0Z2s2f_2&currency=USD"></script>
+
     <style>
         :root {
             --primary: #ffcc00;
@@ -39,7 +41,7 @@
             padding: 1.5rem;
             text-align: center;
             position: relative;
-            
+
         }
 
         .logo {
@@ -53,21 +55,10 @@
             font-weight: 300;
             font-size: 1rem;
             color: rgba(255, 255, 255, 0.8);
-            
+
         }
 
-         .hero {
-      background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
-                  url('https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80') center/cover no-repeat;
-      height: 70vh;
-      min-height: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 0 2rem;
-    }
+
 
         .hero-content h1 {
             font-size: 2.5rem;
@@ -78,7 +69,7 @@
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto 2rem;
-            
+
         }
 
         .products {
@@ -519,15 +510,14 @@
         .product:nth-child(10) {
             animation-delay: 1s;
         }
-        
     </style>
 </head>
 
 <body>
     <header>
-        <div class="logo">MG WEAR DZ  </div>
+        <div class="logo">MG WEAR DZ </div>
         <div class="tagline">Style Algérien Moderne</div>
-    
+
     </header>
 
     <section class="hero">
@@ -541,7 +531,7 @@
         <!-- Produit 1 -->
         <div class="product">
             <span class="product-badge">Nouveau</span>
-            <img src="images.jpg" class="product-img">
+            <img src="istockphoto-1201026026-612x612.jpg" alt="Oversized T-shirt" class="product-img">
             <div class="product-info">
                 <span class="product-category">T-shirts</span>
                 <h3>Oversized T-shirt</h3>
@@ -572,10 +562,11 @@
         <!-- Produit 2 -->
         <div class="product">
             <span class="product-badge">Meilleur vente</span>
-            <img src="cas.webp" class="product-img">
+            <img src="ssrco,baseball_cap,mens,FFFFFF_97ab1c12de,front_three_quarter,tall_portrait,750x1000-bg,f8f8f8.jpg"
+                alt="Casquette MG" class="product-img">
             <div class="product-info">
                 <span class="product-category">Accessoires</span>
-                <h3>Casquette </h3>
+                <h3>Casquette MG</h3>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -632,11 +623,11 @@
 
         <!-- Produit 4 -->
         <div class="product">
-            <span class="product-badge">Promo!</span>
+            <span class="product-badge">Promo</span>
             <img src="il_570xN.5896595981_adts.webp" alt="Sweat à capuche MG" class="product-img">
             <div class="product-info">
                 <span class="product-category">Vêtements</span>
-                <h3>Sweat à capuche vinland saga</h3>
+                <h3>Sweat à capuche MG</h3>
                 <div class="rating">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -663,7 +654,7 @@
 
         <!-- Produit 5 -->
         <div class="product">
-            <img src="ZM048_1_ZC1.webp" class="product-img">
+            <img src="pantalon-jogging-avec-poches-a-rabat-sport-garcon.avif" alt="Jogging Sport" class="product-img">
             <div class="product-info">
                 <span class="product-category">Sport</span>
                 <h3>Jogging Sport</h3>
@@ -938,6 +929,8 @@
                     <label for="notes">Notes supplémentaires</label>
                     <textarea id="notes" name="notes"></textarea>
                 </div>
+                <div id="paypal-button-container"></div>
+
                 <button type="submit" class="submit-btn">Envoyer la commande</button>
             </form>
             <div class="form-success" id="formSuccess">
@@ -952,15 +945,15 @@
 
 
     <footer>
-        
-               
-            </div>
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Chlef, Algérie</p>
-                <p><i class="fas fa-phone"></i> +213 671 851 086</p>
-                <p><i class="fas fa-envelope"></i> contact@mgweardz.dz</p>
-            </div>
+
+
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p><i class="fas fa-map-marker-alt"></i> Chlef, Algérie</p>
+            <p><i class="fas fa-phone"></i> +213 671 851 086</p>
+            <p><i class="fas fa-envelope"></i> contact@mgweardz.dz</p>
+        </div>
         </div>
         <div class="copyright">
             © 2025 MG WEAR DZ. Tous droits réservés.
@@ -1079,6 +1072,26 @@
                 document.body.style.overflow = 'auto';
             }
         });
+    
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+      return actions.order.create({
+                purchase_units: [{
+                amount: {
+                value: '10.00' // Change this to the price you want
+          }
+        }]
+      });
+    },
+            onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+                alert('Transaction completed by ' + details.payer.name.given_name);
+        // You can redirect or show a thank you message here
+      });
+    }
+  }).render('#paypal-button-container');
+    
+
     </script>
 </body>
 

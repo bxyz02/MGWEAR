@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MG WEAR DZ - Produits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ffcc00;
+            --primary-dark: #e6b800;
+            --dark: #161613;
+            --light: #f9f9f9;
+            --gray: #777;
+            --white: #fff;
+            --shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark);
+            color: var(--primary);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-weight: 300;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            
+        }
+
+         .hero {
+      background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1287&q=80') center/cover no-repeat;
+      height: 70vh;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 2rem;
+    }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(87, 61, 10, 0.2);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .product-category {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0.5rem 0 1rem;
+            color: var(--dark);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .order-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .wishlist-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.5rem;
+        }
+
+        .wishlist-btn:hover {
+            color: #ff4757;
+        }
+
+        .rating {
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+
+        .features {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .feature i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Order Form Styles */
+        .order-form-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .order-form-container.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .order-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-form {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .form-success i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 0 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 1rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .products {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 0.8rem;
+            }
+
+            .order-form {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .product:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .product:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .product:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .product:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .product:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .product:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .product:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .product:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .product:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .product:nth-child(10) {
+            animation-delay: 1s;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">MG WEAR DZ  </div>
+        <div class="tagline">Style Algérien Moderne</div>
+    
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Notre Collection Exclusive</h1>
+            <p>Découvrez des vêtements et accessoires de qualité supérieure, conçus pour votre style unique</p>
+        </div>
+    </section>
+
+    <section class="products">
+        <!-- Produit 1 -->
+        <div class="product">
+            <span class="product-badge">Nouveau</span>
+            <img src="istockphoto-1201026026-612x612.jpg" alt="Oversized T-shirt" class="product-img">
+            <div class="product-info">
+                <span class="product-category">T-shirts</span>
+                <h3>Oversized T-shirt</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(24)</span>
+                </div>
+                <div class="price">2500 DA <span class="old-price">3000 DA</span></div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> 100% Coton</div>
+                    <div class="feature"><i class="fas fa-check"></i> Taille ajustable</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Oversized T-shirt" data-price="2500 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 2 -->
+        <div class="product">
+            <span class="product-badge">Meilleur vente</span>
+            <img src="ssrco,baseball_cap,mens,FFFFFF_97ab1c12de,front_three_quarter,tall_portrait,750x1000-bg,f8f8f8.jpg" alt="Casquette MG" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Accessoires</span>
+                <h3>Casquette MG</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(18)</span>
+                </div>
+                <div class="price">1500 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Réglable</div>
+                    <div class="feature"><i class="fas fa-check"></i> Respirant</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Casquette MG" data-price="1500 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 3 -->
+        <div class="product">
+            <img src="Chaussures-Mayze-Classic-Femme.avif" alt="White Sneakers" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Chaussures</span>
+                <h3>White Sneakers</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(32)</span>
+                </div>
+                <div class="price">4500 DA <span class="old-price">5000 DA</span></div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Semelle confortable</div>
+                    <div class="feature"><i class="fas fa-check"></i> Matériau durable</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="White Sneakers" data-price="4500 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 4 -->
+        <div class="product">
+            <span class="product-badge">Promo</span>
+            <img src="il_570xN.5896595981_adts.webp" alt="Sweat à capuche MG" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Vêtements</span>
+                <h3>Sweat à capuche MG</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(27)</span>
+                </div>
+                <div class="price">4000 DA <span class="old-price">4500 DA</span></div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Chaud et confortable</div>
+                    <div class="feature"><i class="fas fa-check"></i> Poche kangourou</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Sweat à capuche MG" data-price="4000 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 5 -->
+        <div class="product">
+            <img src="pantalon-jogging-avec-poches-a-rabat-sport-garcon.avif" alt="Jogging Sport" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Sport</span>
+                <h3>Jogging Sport</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(15)</span>
+                </div>
+                <div class="price">3800 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Élastique confortable</div>
+                    <div class="feature"><i class="fas fa-check"></i> Respirant</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Jogging Sport" data-price="3800 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 6 -->
+        <div class="product">
+            <img src="ST721026MULTI-20220516-_MG_9583.webp" alt="MG Socks" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Accessoires</span>
+                <h3>MG Socks (3 paires)</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(42)</span>
+                </div>
+                <div class="price">900 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Coton doux</div>
+                    <div class="feature"><i class="fas fa-check"></i> Taille unique</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="MG Socks (3 paires)" data-price="900 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 7 -->
+        <div class="product">
+            <img src="totebagswholesale.webp" alt="Tote Bag" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Accessoires</span>
+                <h3>MG Tote Bag</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(12)</span>
+                </div>
+                <div class="price">1200 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Solide et spacieux</div>
+                    <div class="feature"><i class="fas fa-check"></i> Bandoulière réglable</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="MG Tote Bag" data-price="1200 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 8 -->
+        <div class="product">
+            <span class="product-badge">Été</span>
+            <img src="71hyxYKn8+L._AC_UF350,350_QL80_.jpg" alt="Short d'été" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Vêtements</span>
+                <h3>Short d'été MG</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(19)</span>
+                </div>
+                <div class="price">2200 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Léger et respirant</div>
+                    <div class="feature"><i class="fas fa-check"></i> Séchage rapide</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Short d'été MG" data-price="2200 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 9 -->
+        <div class="product">
+            <img src="veste-legere-bae-188378.webp" alt="Veste légère" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Vêtements</span>
+                <h3>Veste légère</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(28)</span>
+                </div>
+                <div class="price">5200 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Imperméable</div>
+                    <div class="feature"><i class="fas fa-check"></i> Poche intérieure</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Veste légère" data-price="5200 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Produit 10 -->
+        <div class="product">
+            <span class="product-badge">Nouveau</span>
+            <img src="se-ipad-m1-rayban-18-scaled.webp" alt="Lunettes de soleil MG" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Accessoires</span>
+                <h3>Lunettes de soleil MG</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(8)</span>
+                </div>
+                <div class="price">1600 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Protection UV400</div>
+                    <div class="feature"><i class="fas fa-check"></i> Style moderne</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Lunettes de soleil MG" data-price="1600 DA">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form -->
+    <div class="order-form-container" id="orderFormContainer">
+        <div class="order-form">
+            <button class="close-form" id="closeForm">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="form-title" id="formTitle">Commander <span id="productName"></span></h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="product">Produit</label>
+                    <input type="text" id="product" name="product" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="price">Prix</label>
+                    <input type="text" id="price" name="price" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nom complet*</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="address">Adresse complète*</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="wilaya">Wilaya*</label>
+                    <select id="wilaya" name="wilaya" required>
+                        <option value="">Sélectionnez votre wilaya</option>
+                        <option value="Adrar">Adrar</option>
+                        <option value="Chlef">Chlef</option>
+                        <option value="Laghouat">Laghouat</option>
+                        <option value="Oum El Bouaghi">Oum El Bouaghi</option>
+                        <option value="Batna">Batna</option>
+                        <option value="Béjaïa">Béjaïa</option>
+                        <option value="Biskra">Biskra</option>
+                        <option value="Béchar">Béchar</option>
+                        <option value="Blida">Blida</option>
+                        <option value="Bouira">Bouira</option>
+                        <option value="Tamanrasset">Tamanrasset</option>
+                        <option value="Tébessa">Tébessa</option>
+                        <option value="Tlemcen">Tlemcen</option>
+                        <option value="Tiaret">Tiaret</option>
+                        <option value="Tizi Ouzou">Tizi Ouzou</option>
+                        <option value="Alger">Alger</option>
+                        <option value="Djelfa">Djelfa</option>
+                        <option value="Jijel">Jijel</option>
+                        <option value="Sétif">Sétif</option>
+                        <option value="Saïda">Saïda</option>
+                        <option value="Skikda">Skikda</option>
+                        <option value="Sidi Bel Abbès">Sidi Bel Abbès</option>
+                        <option value="Annaba">Annaba</option>
+                        <option value="Guelma">Guelma</option>
+                        <option value="Constantine">Constantine</option>
+                        <option value="Médéa">Médéa</option>
+                        <option value="Mostaganem">Mostaganem</option>
+                        <option value="M'Sila">M'Sila</option>
+                        <option value="Mascara">Mascara</option>
+                        <option value="Ouargla">Ouargla</option>
+                        <option value="Oran">Oran</option>
+                        <option value="El Bayadh">El Bayadh</option>
+                        <option value="Illizi">Illizi</option>
+                        <option value="Bordj Bou Arréridj">Bordj Bou Arréridj</option>
+                        <option value="Boumerdès">Boumerdès</option>
+                        <option value="El Tarf">El Tarf</option>
+                        <option value="Tindouf">Tindouf</option>
+                        <option value="Tissemsilt">Tissemsilt</option>
+                        <option value="El Oued">El Oued</option>
+                        <option value="Khenchela">Khenchela</option>
+                        <option value="Souk Ahras">Souk Ahras</option>
+                        <option value="Tipaza">Tipaza</option>
+                        <option value="Mila">Mila</option>
+                        <option value="Aïn Defla">Aïn Defla</option>
+                        <option value="Naâma">Naâma</option>
+                        <option value="Aïn Témouchent">Aïn Témouchent</option>
+                        <option value="Ghardaïa">Ghardaïa</option>
+                        <option value="Relizane">Relizane</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantité*</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes supplémentaires</label>
+                    <textarea id="notes" name="notes"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer la commande</button>
+            </form>
+            <div class="form-success" id="formSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h3>Commande envoyée avec succès!</h3>
+                <p>Nous vous contacterons bientôt pour confirmer votre commande.</p>
+                <button class="order-btn" id="closeSuccess">Retour aux produits</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer>
+        
+               
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Chlef, Algérie</p>
+                <p><i class="fas fa-phone"></i> +213 671 851 086</p>
+                <p><i class="fas fa-envelope"></i> contact@mgweardz.dz</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 MG WEAR DZ. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script>
+        // Wishlist button functionality
+        const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+
+        wishlistButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const icon = button.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = '#ff4757';
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = '';
+                }
+            });
+        });
+
+        // Order Form Functionality
+        const orderFormContainer = document.getElementById('orderFormContainer');
+        const closeForm = document.getElementById('closeForm');
+        const orderForm = document.getElementById('orderForm');
+        const productName = document.getElementById('productName');
+        const productInput = document.getElementById('product');
+        const priceInput = document.getElementById('price');
+        const formSuccess = document.getElementById('formSuccess');
+        const closeSuccess = document.getElementById('closeSuccess');
+        const orderButtons = document.querySelectorAll('.order-btn');
+
+        // Show order form when clicking order buttons
+        orderButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const product = button.getAttribute('data-product');
+                const price = button.getAttribute('data-price');
+
+                productName.textContent = product;
+                productInput.value = product;
+                priceInput.value = price;
+
+                orderFormContainer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close order form
+        closeForm.addEventListener('click', () => {
+            orderFormContainer.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close success message
+        closeSuccess.addEventListener('click', () => {
+            orderFormContainer.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            formSuccess.style.display = 'none';
+            orderForm.style.display = 'block';
+        });
+
+        // Handle form submission
+        orderForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(orderForm);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // Send data to your email using FormSubmit.co
+                const response = await fetch('https://formsubmit.co/ajax/abdoubz02.2011@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: data.name,
+                        phone: data.phone,
+                        email: data.email,
+                        product: data.product,
+                        price: data.price,
+                        quantity: data.quantity,
+                        address: data.address,
+                        wilaya: data.wilaya,
+                        notes: data.notes,
+                        _subject: 'Nouvelle commande MG WEAR DZ',
+                        _template: 'table'
+                    })
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    orderForm.style.display = 'none';
+                    formSuccess.style.display = 'block';
+
+                    // Reset form
+                    orderForm.reset();
+                } else {
+                    alert('Une erreur s\'est produite. Veuillez réessayer plus tard.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Une erreur s\'est produite. Veuillez réessayer plus tard.');
+            }
+        });
+
+        // Close form when clicking outside
+        orderFormContainer.addEventListener('click', (e) => {
+            if (e.target === orderFormContainer) {
+                orderFormContainer.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+
+</html>
